@@ -1,6 +1,24 @@
-# IsoMetricMapTool
-click the link to watch the complete version video, https://goo.gl/mdfEvT; 
-Used triplePointer Array to store tiles. 
-Implemented advanced sorting algorithms and data-structures to reduce lag. 
-Four save lots and load slots using txt file.
-Each tile is linked to next tiles and has their own tag, so that I can add A-star algorithm simply.
+# 🗺️ IsoMetricMapTool
+
+> 🎓 **학습 및 추억 기록용 프로젝트**  
+> 이 프로젝트는 학생 시절 Windows API와 C++을 공부하며 개발했던 아이소메트릭(Isometric) 방식의 2.5D 타일 맵 툴입니다. 과거에 코딩을 하며 깊게 고민하고 노력했던 흔적들을 소중히 보존하고자 기록용으로 남겨둡니다.
+
+---
+
+### 💻 핵심 구현 및 소스 코드 특징
+당시 효율적인 게임 기획 및 개발 환경을 구축하기 위해 다음과 같은 컴포넌트 구조를 직접 설계하고 구현했습니다.
+
+* **Tile & TileManager (`TileManager.cpp/.h`)**
+  * 평면적인 2D 맵을 입체적인 2.5D 아이소메트릭 시점으로 변환하는 좌표계 연산을 구현했습니다.
+  * 레이어(Layer) 관리를 위해 내부적으로 포인터 배열을 설계하여 타일의 배치와 렌더링 순서를 제어했습니다.
+* **오브젝트 및 충돌 기반 (`Object.cpp/.h`, `Enemy.h`)**
+  * 타일 위에 올라가는 장애물, 아이템, NPC(Enemy) 등의 객체를 독립적으로 관리할 수 있도록 기본 Object 클래스를 설계했습니다.
+* **화면 전환 및 게임 루프 (`GameManager.cpp/.h`, `Scene.cpp/.h`)**
+  * 메뉴 화면(`SceneMenu`), 편집 화면(`SceneOne`), 저장된 맵 확인 화면(`SceneSaved`) 등 다양한 상태를 관리하는 State 패턴 기반의 씬(Scene) 매니저를 구축했습니다.
+* **세이브/로드 시스템 (`SaveLoadSlot.cpp/.h`)**
+  * 사용자가 편집한 타일 데이터와 오브젝트 배치 정보를 텍스트(`.txt`) 파일 시스템 기반으로 저장하고 불러올 수 있도록 4개의 파일 슬롯을 구현했습니다.
+* **사운드 및 UI (`SoundManager.cpp/.h`, `ButtonManager.cpp/.h`)**
+  * 맵 툴 조작 시 직관적인 피드백을 주기 위한 자체 버튼 UI 시스템과 사운드 재생 기능을 연동했습니다.
+
+### 📺 완성 시연 영상
+* 당시 기록해 둔 완성 버전 작동 영상은 [여기(goo.gl/mdfEvT)](https://goo.gl/mdfEvT)에서 확인하실 수 있습니다.
